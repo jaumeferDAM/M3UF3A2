@@ -1,36 +1,31 @@
 package domino;
 
 import domino.control.GestioDomino;
+import domino.control.GestioDominoText;
+import domino.control.InterficieText;
 import domino.model.Joc;
 import domino.model.Jugador;
-import domino.vista.InterficieGrafica;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.SwingUtilities;
 
 public class Domino {
-
+ static Joc joc = new Joc(4, 28, 7);
+       static int comptPassar = joc.getTorn();
+        static InterficieText it = new InterficieText();
+        
     public static void main(String[] args) {
-        Joc joc = new Joc(4, 28, 7);
-
-        InterficieGrafica ig = new InterficieGrafica();
-        GestioDomino gd = new GestioDomino(ig);
-        String[] noms = {"Pau", "fd", "dd", "dd2"};
+       cargarJuego();
+       
+        
+    }
+    public static void cargarJuego() {
+        String[] noms = it.setJugadors();
         joc.iniciar(noms);
-        System.out.println((joc.getJugadors()[0]));
-
-        gd.iniicia();
-
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-
-                InterficieGrafica intGraf = new InterficieGrafica();
-                intGraf.setVisible(true);
-            }
-        });
-
+        
+        GestioDominoText gdt = new GestioDominoText(joc, it, joc.getJugadors()[0], comptPassar);
+//        gdt.getClass();
     }
 
 }
