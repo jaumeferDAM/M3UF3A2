@@ -75,6 +75,7 @@ public class GestioDominoText implements IGestioDomino {
 
     @Override
     public void jugada1() {
+        System.out.println(jugador.getFitxes());
         this.interficieText.jugarFitxa0(interficieText.demanarFitxa("Sleccionar fitxa"));
 
     }

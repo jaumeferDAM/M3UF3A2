@@ -70,7 +70,7 @@ public class InterficieText {
            }
 
         public void jugarFitxa0(int f) {
-             Fitxa jugada = ig.getFichesJugador().get(0);
+             Fitxa jugada = jugador.getFitxes().get(0);
              jugador.colocarFitxa(jugada);
              torn.colocarUnaFitxa(jugada, true);
         }
